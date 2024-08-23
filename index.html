@@ -55,7 +55,6 @@
   onValue(LogoRef, (snapshot) => {
     document.getElementById("logo").innerHTML = snapshot.val();
   });
-  document.getElementById("slideul").innerHTML="";
   const SlideRef = ref(database, 'coverBig');
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
