@@ -54,8 +54,6 @@ nav ul li a:hover::after{
 }
 [title="YouTube video player"]{
 	margin: auto;
-        width: 50%;
-        border: 3px solid green;
         padding: 10px;
 }
 .footer2 a{
