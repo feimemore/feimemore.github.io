@@ -52,7 +52,7 @@ nav ul li a:hover::after{
 	margin: 0;
 	padding: 0;
 }
-.slide ul li[title="YouTube video player"]{
+[title="YouTube video player"]{
 	margin: auto;
         width: 50%;
         border: 3px solid green;
