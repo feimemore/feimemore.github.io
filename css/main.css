@@ -55,8 +55,7 @@ nav ul li a:hover::after{
 [title="YouTube video player"]{
 	margin: auto;
         padding: 10px;
-	width: 560px;
-	height: 315px;
+	aspect-ratio: initial;
 }
 .footer2 a{
 	text-decoration: none;
