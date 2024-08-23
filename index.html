@@ -81,6 +81,12 @@
 	document.getElementById("slideul").innerHTML += snapshot.val()[i]
 	document.getElementById("slideul").innerHTML += "</li>"
     }
+    $(function(){
+				$(".slide ul").bxSlider({
+					auto:true,
+					speed:800,
+				});
+			})
   });
 
 </script>
