@@ -74,6 +74,7 @@
   document.getElementById("slideul").innerHTML="";
   const SlideRef = ref(database, 'coverBig');
   onValue(SlideRef, (snapshot) => {
+    console.log("Updated Slider")
     document.getElementById("slideul").innerHTML="";
     for(var i = 0;i < snapshot.val().length;i++){
 	document.getElementById("slideul").innerHTML += "<li>"
