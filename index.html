@@ -9,7 +9,7 @@
 		<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 		<nav>
 			<ul>
-				<li><img src="https://yt3.googleusercontent.com/OjFlymuT1WjHTTDlQuy80H-1OqKpYcMsQK8qTuwCSYtR60wykPBOxwcM9K5GYvEZx7i1MN4tY2A=s160-c-k-c0x00ffffff-no-rj"></li>
+				<li id="logo"><img src="https://yt3.googleusercontent.com/OjFlymuT1WjHTTDlQuy80H-1OqKpYcMsQK8qTuwCSYtR60wykPBOxwcM9K5GYvEZx7i1MN4tY2A=s160-c-k-c0x00ffffff-no-rj"></li>
 				<li><a href="index.html">主頁</a></li>
 				<li><a href="https://www.youtube.com/@feimemore/videos" target="_blank">Youtube</a></li>
 				<li><a href="https://www.youtube.com/redirect?event=channel_description&redir_token=QUFFLUhqbGdXVkhST2RPczk1c2lYbXdmdUhFMWhqemtXQXxBQ3Jtc0tsLWNrQ0VfdE5YaDFweUlhZ3pHX0FsWkowYnpLT2hxMnJPZTU0b0EwaFNOVk0zSERuZERQemdvejlqOUpzbFBvT1dFUGxHbVA0WEtWWU1sUXVJQWxCb3pFOWhZX01VR0d2S2pKRW00S05TUWV2Rlk1cw&q=https%3A%2F%2Fwww.facebook.com%2Ffeitine%2F" target="_blank">Facebook</a></li>
@@ -20,7 +20,7 @@
 	</head>
 	<body>
 		<div class="slide">
-			<ul>
+			<ul id="slideul">
 				<li><iframe width="560" height="315" src="https://www.youtube.com/embed/G82scog7dGw?si=SvAlbIAI8fH9n_pj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></li>
 				<li></li>
 			</ul>
@@ -45,6 +45,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -55,6 +56,7 @@
     authDomain: "feimemore.firebaseapp.com",
     projectId: "feimemore",
     storageBucket: "feimemore.appspot.com",
+    databaseURL: "https://feimemore-default-rtdb.firebaseio.com/",
     messagingSenderId: "227675903682",
     appId: "1:227675903682:web:3dfd81d0de3584b5d1cd5b",
     measurementId: "G-7PTTJKW477"
@@ -63,5 +65,22 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  // Initialize Realtime Database and get a reference to the service
+  const database = getDatabase(app);
+  const LogoRef = ref(database, 'logo');
+  onValue(LogoRef, (snapshot) => {
+    document.getElementById("logo").innerHTML = snapshot.val();
+  });
+  document.getElementById("slideul").innerHTML="";
+  const SlideRef = ref(database, 'coverBig');
+  onValue(SlideRef, (snapshot) => {
+    document.getElementById("slideul").innerHTML="";
+    for(var i = 0;i < snapshot.val().length;i++){
+	document.getElementById("slideul").innerHTML += "<li>"
+	document.getElementById("slideul").innerHTML += snapshot.val()[i]
+	document.getElementById("slideul").innerHTML += "</li>"
+    }
+  });
+
 </script>
 </html>
