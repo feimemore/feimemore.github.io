@@ -62,4 +62,11 @@ nav ul li a:hover::after{
 }
 body{
 	overflow-x: hidden;
+	
+}
+body{
+  border: 5px solid transparent;
+  border-image: linear-gradient(to bottom right, #fffb58 0%, #f81cf0 50%, #691f8d 100%);
+  border-image-slice: 1;
+  margin: 20px auto;
 }
