@@ -3,8 +3,9 @@
 	border:10px;
 }
 nav img{
-	height: 45px;
-	width: 35px;
+	height: 72px;
+	width: 72px;
+	border-radius: 50%;
 }
 nav ul{
 	margin: 0;
