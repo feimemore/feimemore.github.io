@@ -45,7 +45,7 @@ nav ul li a:hover::after{
 	width:1280px;
 }
 .slide{
-	width: 70%;
+	width: auto;
 	margin: auto;
 }
 .slide ul{
