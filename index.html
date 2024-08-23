@@ -63,6 +63,7 @@
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
     document.getElementById("slideul").innerHTML="";
+    console.log(snapshot.val())
     for(var i = 0;i < snapshot.val().length;i++){
 	document.getElementById("slideul").innerHTML += "<li>"
 	document.getElementById("slideul").innerHTML += snapshot.val()[i]
