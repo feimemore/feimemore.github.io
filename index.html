@@ -20,9 +20,6 @@
 	</head>
 	<body>
 		<div class="slide">
-			<ul id="slideul">
-				
-			</ul>
 		</div>
                 <br>
                 ＃菲常咪摸 阿菲日常咪摸假日漫遊 八十後全職媽媽 一家四口包哥妹 #香港 #廣東話 #全自費 
@@ -62,19 +59,7 @@
   const SlideRef = ref(database, 'coverBig');
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
-    document.getElementById("slideul").innerHTML="";
-    console.log(snapshot.val())
-    for(var i = 0;i < snapshot.val().length;i++){
-	document.getElementById("slideul").innerHTML += "<li>"
-	document.getElementById("slideul").innerHTML += snapshot.val()[i]
-	document.getElementById("slideul").innerHTML += "</li>"
-    }
-    $(function(){
-	$(".slide ul").bxSlider({
-	    auto:true,
-	    speed:800,
-	});
-    })
+    document.getElementById("slide").innerHTML = snapshot.val()
   });
 
 </script>
