@@ -78,7 +78,7 @@ const posts = [
   },
 ];
 
-const blogPostsContainer = document.querySelector(".blog-posts-container");
+const blogPostsContainer = document.getElementById("blog-posts-container");
 
 const createPostDiv = (
   postLink,
