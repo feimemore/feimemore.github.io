@@ -21,17 +21,8 @@
 	</head>
 	<body>
 		<div class="cloud-container">
-		 <ul class="cloud" role="navigation">
-                  <li><a href="#" data-weight="2">#阿菲日常</a></li>
-                  <li><a href="#" data-weight="1">#咪摸</a></li>
-  		  <li><a href="#" data-weight="4">#假日漫遊</a></li>
-                  <li><a href="#" data-weight="5">#八十後全職媽媽</a></li>
-		  <li><a href="#" data-weight="9">菲常咪摸</a></li>
-		  <li><a href="#" data-weight="5">#一家四口包哥妹</a></li>
-		  <li><a href="#" data-weight="4">#香港</a></li>
-		  <li><a href="#" data-weight="3">#廣東話</a></li>
-		  <li><a href="#" data-weight="2">#全自費</a></li>
- 		  
+		 <ul class="cloud" id="cloud" role="navigation">
+                  
 	         </ul>
 		</div>
 		<div class="slide" id="slide">
@@ -74,6 +65,21 @@
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
     document.getElementById("slide").innerHTML = snapshot.val()
+  });
+  const CloudRef = ref(database, 'cloud');
+  onValue(CloudRef, (snapshot) => {
+    console.log("Updated Cloud")
+    document.getElementById("cloud").innerHTML = ""
+    var len = snapshot.val().length
+    for (var i = 0; i < len ; i++){
+	document.getElementById("cloud").innerHTML += '<li><a href="'
+	document.getElementById("cloud").innerHTML += snapshot.val()[i][0]
+	document.getElementById("cloud").innerHTML += '" data-weight="'
+	document.getElementById("cloud").innerHTML += snapshot.val()[i][1]
+        document.getElementById("cloud").innerHTML += '">'
+	document.getElementById("cloud").innerHTML += snapshot.val()[i][2]
+	document.getElementById("cloud").innerHTML += '</a></li>'
+    }
   });
 
 </script>
