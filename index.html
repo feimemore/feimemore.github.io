@@ -72,13 +72,15 @@
     document.getElementById("cloud").innerHTML = ""
     var len = snapshot.val().length
     for (var i = 0; i < len ; i++){
-	document.getElementById("cloud").innerHTML += '<li><a href="'
-	document.getElementById("cloud").innerHTML += snapshot.val()[i][0]
-	document.getElementById("cloud").innerHTML += '" data-weight="'
-	document.getElementById("cloud").innerHTML += snapshot.val()[i][1]
-        document.getElementById("cloud").innerHTML += '">'
-	document.getElementById("cloud").innerHTML += snapshot.val()[i][2]
-	document.getElementById("cloud").innerHTML += '</a></li>'
+	var temp = ""
+	temp += '<li><a href="'
+	temp += snapshot.val()[i][0]
+	temp += '" data-weight="'
+	temp += snapshot.val()[i][1]
+        temp += '">'
+	temp += snapshot.val()[i][2]
+	temp += '</a></li>'
+	document.getElementById("cloud").innerHTML += temp
     }
   });
 
