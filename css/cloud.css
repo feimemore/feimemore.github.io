@@ -1,6 +1,6 @@
 .cloud-container {
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  width: 80vw;
   margin: 0;
   padding: 0;
   display: flex;
