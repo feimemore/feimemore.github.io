@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="./css/main.css?defer">
+		<link rel="stylesheet" href="./css/cloud.css?defer">
+		<link rel="stylesheet" href="./css/style.css?defer">
+		<title>Feimemore</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+		
+		<nav>
+			<ul>
+				<li id="logo"><img src="https://yt3.googleusercontent.com/OjFlymuT1WjHTTDlQuy80H-1OqKpYcMsQK8qTuwCSYtR60wykPBOxwcM9K5GYvEZx7i1MN4tY2A=s160-c-k-c0x00ffffff-no-rj"></li>
+				<li><a href="index.html">主頁</a></li>
+				<li><a href="https://www.youtube.com/@feimemore/videos" target="_blank">Youtube</a></li>
+				<li><a href="https://www.facebook.com/feitine/" target="_blank">Facebook</a></li>
+				<li><a href="https://www.instagram.com/christine.fei/" target="_blank">Instergram</a></li>
+				
+			</ul>
+		</nav>
+	</head>
+	<body>
+    <div id="navtitle"></div>
+		<div class="slide" id="slide">
+			加載中。。。（長時間無法加載請重試）
+		</div>
+    <div id="container"></div>
+                <br>
+		<hr style="border-width: 10px;">
+		<h1>其他影片</h1>
+		<div id="blog-posts-container"></div>
+
+	</body>
+	
+	<script src="blog.js"></script>
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+  import { getDatabase, ref, onValue ,child , get , set } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCt9oZcEhGZBwag35a7ImChLmmiujwHWio",
+    authDomain: "feimemore.firebaseapp.com",
+    projectId: "feimemore",
+    storageBucket: "feimemore.appspot.com",
+    databaseURL: "https://feimemore-default-rtdb.firebaseio.com/",
+    messagingSenderId: "227675903682",
+    appId: "1:227675903682:web:3dfd81d0de3584b5d1cd5b",
+    measurementId: "G-7PTTJKW477"
+  };
+  let paramString = urlString.split('?')[1];
+  let queryString = new URLSearchParams(paramString);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  // Initialize Realtime Database and get a reference to the service
+  const database = getDatabase(app);
+  const LogoRef = ref(database, 'logo');
+  var box = ref(database, "post")
+  var data = {}
+  get(child(ref(database,"views"), queryString["link"])).then((snapshot) => {
+      if (snapshot.exists()) {
+		    var value = snapshot.val()
+		    set(child(ref(database,"views"), queryString["link"]), value + 1);
+      }
+  }
+  
+  onValue(box, (snapshot) => {
+    data = snapshot.val()[queryString["id"]]
+    var html = ""
+    html += ("<h1>" + data.title + "</h1><br>")
+    
+    var date = new Date(data.datePublished);
+    var options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+    };
+    let datePublished = date.toLocaleDateString('en', options);
+    html += ("<h3>" + data.category + "  " + datePublished + "</h3>     ")
+    html += ("<h3>" + data.author + "</h3><br>")
+    html += ("<h4>" + data.summary + "</h4><br>")
+    document.getElementById("navtitle").innerHTML = html
+    
+  });
+   get(child(ref(database,"blog"), queryString["link"] + "/page")).then((snapshot) => {
+      if (snapshot.exists()) {
+		    var value = snapshot.val()
+		    document.getElementById("container").innerHTML = snapshot.val()
+      }
+  }
+  
+  onValue(LogoRef, (snapshot) => {
+    document.getElementById("logo").innerHTML = snapshot.val();
+  });
+  const SlideRef = ref(database, 'page/' + queryString["link"] + '/embed');
+  onValue(SlideRef, (snapshot) => {
+    console.log("Updated Slider")
+    
+    document.getElementById("slide").innerHTML = snapshot.val()
+  });
+  const PostRef = ref(database, 'post');
+  onValue(PostRef, (snapshot) => {
+    console.log("Updated Post")
+    var posts = snapshot.val()
+    populateAllPosts(posts);
+  });
+  
+</script>
+
+
+</html>
