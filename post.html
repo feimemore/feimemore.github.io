@@ -75,6 +75,7 @@
   onValue(box, (snapshot) => {
     data = snapshot.val()[queryString["id"]]
     var html = ""
+    document.title = data.title
     html += ("<h1>" + data.title + "</h1><br>")
     
     var date = new Date(data.datePublished);
