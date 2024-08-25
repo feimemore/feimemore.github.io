@@ -119,6 +119,7 @@ function compareTime(a, b) {
   return a.datePublished - b.datePublished
 }
 const populateAllPosts = (posts) => {
+  blogPostsContainer.innerHTML = ""
   posts.sort(compareTime);
   posts.forEach((post) => {
     let postLink = post.postLink;
