@@ -22,6 +22,16 @@
 		</nav>
 	</head>
 	<body>
+		<div id="manage" style="display:none;">
+		  封面id<input id="thumbUrl"></input><br>
+                  內容id<input id="postLink"></input><br>
+                  地區<input id="category">香港</input><br>
+		  標題<input id="title"></input><br>
+	  	  總結<input id="summary"></input><br>
+	  	  發布者<input id="author">Feimemore</input><br>
+		  <input id="password"></input>
+		  <button onclick="submit"></button>
+		</div>
 		<div class="cloud-container">
 		 <ul class="cloud" id="cloud" role="navigation">
                   
@@ -36,12 +46,13 @@
 		<div id="blog-posts-container"></div>
 
 	</body>
+	
 	<script src="blog.js"></script>
 	<script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
-  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
+  import { getDatabase, ref, onValue ,child , get , set } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -95,6 +106,53 @@
     var posts = snapshot.val()
     populateAllPosts(posts);
   });
+  document.onkeydown = keydown;
+  function submit(){
+    const dbRef = ref(database);
+    get(child(dbRef, `passwd`)).then((snapshot) => {
+      if (snapshot.exists()) {
+	if document.getElementById("password").value = snapshot.val(){
+	      get(child(dbRef, "post")).then((snapshot) => {
+              if (snapshot.exists()) {
+		  value = snapshot.val()
+		  value.append({
+    		    thumbUrl: document.getElementById("thumbUrl").value,
+  		    postLink: document.getElementById("postLink").value,
+  		    category: document.getElementById("category").value,
+  		    categoryLink: "#",
+   		    title: document.getElementById("title").value,
+   		    summary:
+    		      document.getElementById("summary").value,
+   		    author: document.getElementById("author").value,
+   		    datePublished: Date.now()
+ 		  })
+	          set(ref(db, 'post'), value);
+              } else {
+                  console.log("No data available");
+              }
+	}else{
+	      alert("wrong password")
+	}
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+
+	  封面id<input id="thumbUrl"></input><br>
+                  內容id<input id="postLink"></input><br>
+                  地區<input id="category">香港</input><br>
+		  標題<input id="title"></input><br>
+	  	  總結<input id="summary"></input><br>
+	  	  發布者<input id="author">Feimemore</input><br>
+  }
+  function keydown(evt){
+    if (!evt) evt = event;
+    else if (evt.shiftKey && evt.keyCode == 9){ //Shif+TAB
+      document.getElementById("manage").style = ""
+    }
+  }
   
 </script>
 
