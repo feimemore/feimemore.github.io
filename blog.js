@@ -90,6 +90,7 @@ const createPostDiv = (
   author,
   datePublished
 ) => {
+  postLink = postLink.replace("https://www.youtube.com/watch?v=","")
   let HTMLCode = `<div class="post">
     <a href="/post.html?link='${postLink}'" target="_blank" class="post-link"></a>
     <div class="thumbnail">
