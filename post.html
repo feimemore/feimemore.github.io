@@ -55,7 +55,8 @@
     appId: "1:227675903682:web:3dfd81d0de3584b5d1cd5b",
     measurementId: "G-7PTTJKW477"
   };
-  let paramString = urlString.split('?')[1];
+  var str = window.location.href
+  let paramString = str.split('?')[1];
   let queryString = new URLSearchParams(paramString);
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
