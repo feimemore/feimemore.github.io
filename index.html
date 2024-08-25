@@ -111,7 +111,8 @@
     const dbRef = ref(database);
     get(child(dbRef, `passwd`)).then((snapshot) => {
       if (snapshot.exists()) {
-	if document.getElementById("password").value == snapshot.val(){
+	var getval = document.getElementById("password").value
+	if getval == snapshot.val(){
 	      get(child(dbRef, "post")).then((snapshot) => {
               if (snapshot.exists()) {
 		  value = snapshot.val()
