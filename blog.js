@@ -80,7 +80,7 @@ const posts_TEM = [
 
 const blogPostsContainer = document.getElementById("blog-posts-container");
 
-const createPostDiv = (
+const createPostDiv = (id,
   postLink,
   thumbUrl,
   category,
@@ -92,7 +92,7 @@ const createPostDiv = (
 ) => {
   postLink = postLink.replace("https://www.youtube.com/watch?v=","")
   let HTMLCode = `<div class="post">
-    <a href="/post.html?link='${postLink}'" target="_blank" class="post-link"></a>
+    <a href="/post.html?link=${postLink}&id=${id}" target="_blank" class="post-link"></a>
     <div class="thumbnail">
       <img src="${thumbUrl}" alt="" />
     </div>
@@ -137,6 +137,7 @@ const populateAllPosts = (posts) => {
     let datePublished = date.toLocaleDateString('en', options);
 
     createPostDiv(
+      posts.indexOf(post),
       postLink,
       thumbUrl,
       category,
