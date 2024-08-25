@@ -89,7 +89,13 @@
 	document.getElementById("cloud").innerHTML += temp
     }
   });
-  populateAllPosts(posts);
+  const PostRef = ref(database, 'post');
+  onValue(PostRef, (snapshot) => {
+    console.log("Updated Post")
+    var posts = snapshot.val()
+    populateAllPosts(posts);
+  });
+  
 </script>
 
 
