@@ -91,7 +91,7 @@ const createPostDiv = (
   datePublished
 ) => {
   let HTMLCode = `<div class="post">
-    <a href="${postLink}" class="post-link"></a>
+    <a href="/post.html?link='${postLink}'" target="_blank" class="post-link"></a>
     <div class="thumbnail">
       <img src="${thumbUrl}" alt="" />
     </div>
