@@ -117,7 +117,7 @@
 	      get(child(dbRef, "post")).then((snapshot) => {
               if (snapshot.exists()) {
 		  var value = snapshot.val()
-		  value.append({
+		  value.push({
     		    thumbUrl: document.getElementById("thumbUrl").value,
   		    postLink: document.getElementById("postLink").value,
   		    category: document.getElementById("category").value,
