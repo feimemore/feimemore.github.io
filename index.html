@@ -129,6 +129,7 @@
    		    datePublished: Date.now()
  		  })
 	          set(ref(database, 'post'), value);
+		  set(ref(database, 'views/' + document.getElementById("postLink").value.replace("https://www.youtube.com/watch?v=","")), 0);
               } else {
                   console.log("No data available");
               }
