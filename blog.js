@@ -115,8 +115,11 @@ const createPostDiv = (
 
   blogPostsContainer.insertAdjacentHTML("beforeend", HTMLCode);
 };
-
+function compareTime(a, b) {
+  return a.datePublished - b.datePublished
+}
 const populateAllPosts = (posts) => {
+  posts.sort(compareTime);
   posts.forEach((post) => {
     let postLink = post.postLink;
     let thumbUrl = post.thumbUrl;
@@ -125,7 +128,11 @@ const populateAllPosts = (posts) => {
     let title = post.title;
     let summary = post.summary;
     let author = post.author;
-    let datePublished = post.datePublished;
+    var date = new Date(post.datePublished);
+    var options = {
+      year: 'numeric', month: 'numeric', day: 'numeric',
+    };
+    let datePublished = date.toLocaleDateString('en', options);
 
     createPostDiv(
       postLink,
