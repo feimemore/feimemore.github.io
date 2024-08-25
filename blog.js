@@ -1,4 +1,4 @@
-const posts = [
+const posts_TEM = [
   {
     id: 1,
     thumbUrl: "images/thumbnail1.jpg",
@@ -116,7 +116,7 @@ const createPostDiv = (
   blogPostsContainer.insertAdjacentHTML("beforeend", HTMLCode);
 };
 
-const populateAllPosts = () => {
+const populateAllPosts = (posts) => {
   posts.forEach((post) => {
     let postLink = post.postLink;
     let thumbUrl = post.thumbUrl;
@@ -140,4 +140,4 @@ const populateAllPosts = () => {
   });
 };
 
-populateAllPosts();
+
