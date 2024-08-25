@@ -29,8 +29,8 @@
 		  標題<input id="title"></input><br>
 	  	  總結<input id="summary"></input><br>
 	  	  發布者<input id="author">Feimemore</input><br>
-		  <input id="password"></input>
-		  <button onclick="submit"></button>
+		  <input id="password"></input><br>
+		  <button id="submit">submit</button>
 		</div>
 		<div class="cloud-container">
 		 <ul class="cloud" id="cloud" role="navigation">
@@ -107,6 +107,7 @@
     populateAllPosts(posts);
   });
   document.onkeydown = keydown;
+  document.getElementById("submit").onclick = submit
   function submit(){
     const dbRef = ref(database);
     get(child(dbRef, `passwd`)).then((snapshot) => {
