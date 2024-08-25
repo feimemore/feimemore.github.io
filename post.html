@@ -66,15 +66,15 @@
   const LogoRef = ref(database, 'logo');
   var box = ref(database, "post")
   var data = {}
-  get(ref(database,"views/" + queryString["link"])).then((snapshot) => {
+  get(ref(database,"views/" + queryString.get("link"))).then((snapshot) => {
       if (snapshot.exists()) {
 		    var value = snapshot.val()
-		    set(child(ref(database,"views"), queryString["link"]), value + 1);
+		    set(child(ref(database,"views"), queryString.get("link")), value + 1);
       }
   })
   
   onValue(box, (snapshot) => {
-    data = snapshot.val()[queryString["id"]]
+    data = snapshot.val()[queryString.get("id")]
     var html = ""
     document.title = data.title
     html += ("<h1>" + data.title + "</h1><br>")
@@ -90,7 +90,7 @@
     document.getElementById("navtitle").innerHTML = html
     
   });
-   get(child(ref(database,"blog"), queryString["link"] + "/page")).then((snapshot) => {
+   get(child(ref(database,"blog"), queryString.get("link") + "/page")).then((snapshot) => {
       if (snapshot.exists()) {
 		    var value = snapshot.val()
 		    document.getElementById("container").innerHTML = snapshot.val()
@@ -100,7 +100,7 @@
   onValue(LogoRef, (snapshot) => {
     document.getElementById("logo").innerHTML = snapshot.val();
   });
-  const SlideRef = ref(database, 'page/' + queryString["link"] + '/embed');
+  const SlideRef = ref(database, 'page/' + queryString.get("link") + '/embed');
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
     
