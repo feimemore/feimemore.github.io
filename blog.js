@@ -150,4 +150,4 @@ const populateAllPosts = (posts) => {
   });
 };
 
-document.getElementById("black").innerHTML = `<h3>沒有影片了哦，期待我們更新吧～～</h3>`
+document.getElementById("black").innerHTML = `<h3>挺細心，不過沒有影片了哦，期待我們更新吧～～</h3>`
