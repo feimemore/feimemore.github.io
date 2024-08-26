@@ -111,11 +111,10 @@ body {
 #black{
   width: 100%;
   height: 100px;
-  color: black;
-  background: rgb(0,0,0);
+  background: black;
   margin: 0px;
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 0px;
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);
 }
