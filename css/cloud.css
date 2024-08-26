@@ -26,6 +26,7 @@ ul.cloud a {
   --size: 4;
   --color: #a33;
   color: var(--color);
+  text-shadow: var(--text-shadow);
   font-size: calc(var(--size) * 0.25rem + 0.5rem);
   display: block;
   padding: 0.125rem 0.25rem;
