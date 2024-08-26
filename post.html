@@ -75,9 +75,6 @@
   
   onValue(box, (snapshot) => {
     data = snapshot.val()[parseInt(queryString.get("id"))]
-    console.log(parseInt(queryString.get("id")))
-    console.log(data)
-    console.log(snapshot.val())
     var html = ""
     document.title = data.title
     html += ("<h1>" + data.title + "</h1><br>")
@@ -104,6 +101,7 @@
     document.getElementById("logo").innerHTML = snapshot.val();
   });
   const SlideRef = ref(database, 'page/' + queryString.get("link") + '/embed');
+  console.log('page/' + queryString.get("link"))
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
     
