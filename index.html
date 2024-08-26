@@ -153,7 +153,7 @@
   }
   document.getElementById("run").onclick = run
   function run(){
-    get(child(dbRef, `passwd`)).then((snapshot) => {
+    get(child(ref(database), `passwd`)).then((snapshot) => {
       if (snapshot.exists()) {
 	var getval = document.getElementById("password").value
 	if (getval == snapshot.val()){
