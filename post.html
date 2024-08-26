@@ -69,7 +69,7 @@
   var box = ref(database, "post")
   var data = {}
   get(ref(database,"views/" + queryString.get("link"))).then((snapshot) => {
-      if (snapshot.exists()) {
+      if (snapshot.exists() && !queryString.get("test")) {
 		    var value = snapshot.val()
 		    set(child(ref(database,"views"), queryString.get("link")), value + 1);
       }
