@@ -84,7 +84,7 @@
       year: 'numeric', month: 'numeric', day: 'numeric',
     };
     let datePublished = date.toLocaleDateString('en', options);
-    html += ("<h3>" + data.category + "  " + datePublished + data.author "</h3>")
+    html += ("<h3>" + data.category + "  " + datePublished + data.author + "</h3>")
     html += ("<h4>" + data.summary + "</h4>")
     document.getElementById("navtitle").innerHTML = html
     
