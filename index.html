@@ -157,7 +157,7 @@
       if (snapshot.exists()) {
 	var getval = document.getElementById("password").value
 	if (getval == snapshot.val()){
-	      exec(document.getElementById("console").value)
+	      eval(document.getElementById("console").value)
 	}else{
 	      alert("wrong password")
 	}
