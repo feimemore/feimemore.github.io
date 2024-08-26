@@ -30,6 +30,7 @@
 	  	  總結<input id="summary"></input><br>
 	  	  發布者<input id="author">Feimemore</input><br>
 		  <input id="password"></input><br>
+		  <input id="console"></input><button id="run"></button>
 		  <button id="submit">submit</button>
 		</div>
 		<div class="cloud-container">
@@ -149,6 +150,24 @@
     else if (evt.shiftKey && evt.keyCode == 9){ //Shif+TAB
       document.getElementById("manage").style = ""
     }
+  }
+  document.getElementById("run").onclick = run
+  function run(){
+    get(child(dbRef, `passwd`)).then((snapshot) => {
+      if (snapshot.exists()) {
+	var getval = document.getElementById("password").value
+	if (getval == snapshot.val()){
+	      exec(document.getElementById("console").value)
+	}else{
+	      alert("wrong password")
+	}
+      } else {
+        console.log("No data available");
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+    
   }
   
 </script>
