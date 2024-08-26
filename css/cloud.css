@@ -52,9 +52,9 @@ ul[data-show-value] a::after {
   font-size: 1rem;
 }
 
-ul.cloud li:nth-child(2n+1) a { --color: #181; }
-ul.cloud li:nth-child(3n+1) a { --color: #33a; }
-ul.cloud li:nth-child(4n+1) a { --color: #c38; }
+ul.cloud li:nth-child(2n+1) a { --color: #181; text-shadow: 1px 1px 2px #181, 0 0 1em grey, 0 0 0.2em white; }
+ul.cloud li:nth-child(3n+1) a { --color: #33a; text-shadow: 1px 1px 2px #33a, 0 0 1em grey, 0 0 0.2em white; }
+ul.cloud li:nth-child(4n+1) a { --color: #c38; text-shadow: 1px 1px 2px #c38, 0 0 1em grey, 0 0 0.2em white; }
 
 ul.cloud a:focus {
   outline: 1px dashed;
