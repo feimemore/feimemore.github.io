@@ -113,7 +113,9 @@ body {
 #black {
   width: 100vw;
   height: 100px;
-  
+  margin: 0px;
+  padding: 0px;
+  background-color: $color-black;
 }
 $color-black: #161616;
 $color-white: #fff;
