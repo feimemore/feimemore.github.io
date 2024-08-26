@@ -75,6 +75,7 @@
   
   onValue(box, (snapshot) => {
     data = snapshot.val()[parseInt(queryString.get("id"))]
+    console.log(parseInt(queryString.get("id")))
     console.log(data)
     console.log(snapshot.val())
     var html = ""
