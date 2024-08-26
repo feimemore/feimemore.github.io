@@ -1,4 +1,4 @@
-.nav {
+nav {
 	box-sizing: border-box;
 	border:10px;
 	
@@ -21,7 +21,7 @@ nav ul li{
 nav ul li a{
 	display: block;
 	font-weight: bold;
-	font-size: 40px;
+	font-size: 25px;
 	text-decoration: none;
 	color: #1a6095;
 	padding: 15px 20px;
