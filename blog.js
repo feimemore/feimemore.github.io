@@ -117,7 +117,7 @@ const createPostDiv = (id,
   blogPostsContainer.insertAdjacentHTML("beforeend", HTMLCode);
 };
 function compareTime(a, b) {
-  return a.datePublished - b.datePublished
+  return b.datePublished - a.datePublished
 }
 const populateAllPosts = (posts) => {
   blogPostsContainer.innerHTML = ""
