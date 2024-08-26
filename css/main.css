@@ -1,7 +1,7 @@
 .nav {
 	box-sizing: border-box;
 	border:10px;
-	font-size: 40px;
+	
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 nav img{
@@ -21,6 +21,7 @@ nav ul li{
 nav ul li a{
 	display: block;
 	font-weight: bold;
+	font-size: 40px;
 	text-decoration: none;
 	color: #1a6095;
 	padding: 15px 20px;
