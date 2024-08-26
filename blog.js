@@ -150,31 +150,4 @@ const populateAllPosts = (posts) => {
   });
 };
 
-document.getElementById("black").innerHTML = `<h3>沒有影片了哦，期待我們更新吧～～</h3>
-<div class="cat">
-	<div class="ear ear--left"></div>
-	<div class="ear ear--right"></div>
-	<div class="face">
-		<div class="eye eye--left">
-			<div class="eye-pupil"></div>
-		</div>
-		<div class="eye eye--right">
-			<div class="eye-pupil"></div>
-		</div>
-		<div class="muzzle"></div>
-	</div>
-</div>
-<div class="cat">
-	<div class="ear ear--left"></div>
-	<div class="ear ear--right"></div>
-	<div class="face">
-		<div class="eye eye--left">
-			<div class="eye-pupil"></div>
-		</div>
-		<div class="eye eye--right">
-			<div class="eye-pupil"></div>
-		</div>
-		<div class="muzzle"></div>
-	</div>
-</div>
-`
+document.getElementById("black").innerHTML = `<h3>沒有影片了哦，期待我們更新吧～～</h3>`
