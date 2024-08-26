@@ -112,7 +112,7 @@ body {
 
 #black {
   width: 100vw;
-  height: auto;
+  height: 100px;
   
 }
 $color-black: #161616;
@@ -307,5 +307,5 @@ $size: 170px; // (Fully responsive)
   display: flex;
   align-items: right;
   justify-content: center;
-	background: $color-black;
+  background: $color-black;
 }
