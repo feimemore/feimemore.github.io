@@ -121,9 +121,7 @@ function compareTime(a, b) {
 }
 const populateAllPosts = (posts) => {
   blogPostsContainer.innerHTML = ""
-  console.log(posts)
   posts = posts.sort(compareTime);
-  console.log(posts)
   posts.forEach((post) => {
     let postLink = post.postLink;
     let thumbUrl = post.thumbUrl;
