@@ -99,8 +99,7 @@
   onValue(LogoRef, (snapshot) => {
     document.getElementById("logo").innerHTML = snapshot.val();
   });
-  const SlideRef = ref(database, 'page/' + queryString.get("link") + '/embed');
-  console.log('page/' + queryString.get("link"))
+  const SlideRef = ref(database, 'blog/' + queryString.get("link") + '/embed');
   onValue(SlideRef, (snapshot) => {
     console.log("Updated Slider")
     
