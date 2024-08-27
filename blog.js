@@ -99,7 +99,7 @@ const createPostDiv = (id,
 
     <div class="title-container">
       <a href="${categoryLink}" class="category">${category}</a>
-      <a href="${postLink}">
+      <a href="/post.html?link=${postLink}&id=${id}">
         <h2 class="title">${title}</h2>
       </a>
     </div>
